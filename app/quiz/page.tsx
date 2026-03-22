@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import {
@@ -156,7 +156,7 @@ function QuizQuestionCard({
   )
 }
 
-export default function QuizPage() {
+function QuizPageContent() {
   const searchParams = useSearchParams()
   const courseId = searchParams.get('course')
 
@@ -379,5 +379,13 @@ export default function QuizPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function QuizPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-50 flex items-center justify-center"><p className="text-slate-500">加载中...</p></div>}>
+      <QuizPageContent />
+    </Suspense>
   )
 }

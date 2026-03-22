@@ -1,7 +1,6 @@
 'use client'
 
 import { useTextToSpeech } from '@/hooks/useTextToSpeech'
-import { Slider } from './Slider'
 import { Card, CardContent, CardHeader, CardTitle } from './Card'
 import { Volume2, Gauge, Mic } from 'lucide-react'
 

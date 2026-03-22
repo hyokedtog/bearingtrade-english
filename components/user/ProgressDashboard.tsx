@@ -224,11 +224,9 @@ export function ProgressDashboard() {
                 onChange={handleImport}
                 className="hidden"
               />
-              <Button variant="outline" className="gap-2" asChild>
-                <span>
-                  <Upload className="h-4 w-4" />
-                  导入数据
-                </span>
+              <Button variant="outline" className="gap-2">
+                <Upload className="h-4 w-4" />
+                导入数据
               </Button>
             </label>
 

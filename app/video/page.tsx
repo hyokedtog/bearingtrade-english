@@ -232,12 +232,8 @@ export default function VideoPage() {
             虽然视频模块还在开发中，但我们的课程和对话练习模块已经准备就绪，马上开始学习吧！
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" asChild>
-              <a href="/course/">浏览课程</a>
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" asChild>
-              <a href="/dialogue/">对话练习</a>
-            </Button>
+            <a href="/course/" className="inline-flex items-center justify-center h-11 rounded-md px-8 text-sm font-medium bg-slate-100 text-slate-900 hover:bg-slate-200 transition-colors">浏览课程</a>
+            <a href="/dialogue/" className="inline-flex items-center justify-center h-11 rounded-md px-8 text-sm font-medium border border-white bg-transparent text-white hover:bg-white/10 transition-colors">对话练习</a>
           </div>
         </div>
       </div>

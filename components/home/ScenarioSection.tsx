@@ -9,7 +9,7 @@ import {
   Truck,
   Utensils,
   Users,
-  Handshake,
+  UserCheck,
   Building2,
   ArrowRight
 } from 'lucide-react'
@@ -55,7 +55,7 @@ const tradeScenarios = [
 const lifeScenarios = [
   {
     id: 'reception',
-    icon: Handshake,
+    icon: UserCheck,
     title: '客户接待',
     description: '从机场接机到酒店入住的完整接待流程英语',
     lessons: 5,
