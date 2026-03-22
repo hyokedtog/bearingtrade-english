@@ -111,7 +111,7 @@ export function ReadingQuizSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="max-w-2xl mb-12">
-          <p className="bt-label mb-3">听力 / 阅读练习</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">听力 / 阅读练习</p>
           <h2 className="text-3xl font-bold text-slate-900">
             工厂验货场景阅读
             <br />
@@ -121,7 +121,7 @@ export function ReadingQuizSection() {
 
         <div className="grid lg:grid-cols-2 gap-10 items-start">
           {/* ── Article ── */}
-          <div className="bt-card p-6 lg:p-8 space-y-5 sticky top-24">
+          <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 lg:p-8 space-y-5 sticky top-24">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h3 className="font-bold text-slate-900 text-lg leading-snug">{ARTICLE.title}</h3>
@@ -154,7 +154,7 @@ export function ReadingQuizSection() {
               <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">关键术语</p>
               <div className="flex flex-wrap gap-2">
                 {['CMM', 'P5 grade', '±0.005mm', 'Ra ≤ 0.2μm', 'ABEC-5', 'Raceway'].map((t) => (
-                  <span key={t} className="bt-spec">{t}</span>
+                  <span key={t} className="font-mono text-sm bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200">{t}</span>
                 ))}
               </div>
             </div>
@@ -206,7 +206,7 @@ export function ReadingQuizSection() {
               const isWrong = submitted && selected !== undefined && selected !== q.correct
 
               return (
-                <div key={q.id} className="bt-card p-6 space-y-4">
+                <div key={q.id} className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 space-y-4">
                   {/* Question */}
                   <div className="flex items-start gap-3">
                     <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#EEF4FF] text-[#0052D4] text-xs font-bold flex items-center justify-center">
@@ -227,10 +227,10 @@ export function ReadingQuizSection() {
                           onClick={() => handleAnswer(q.id, oi)}
                           disabled={submitted}
                           className={cn(
-                            'bt-quiz-option text-sm',
+                            'flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg border border-slate-200 hover:border-blue-600 hover:bg-blue-50 transition-all duration-150 cursor-pointer text-sm',
                             isSelected && !submitted && 'border-[#0052D4] bg-[#EEF4FF]',
                             submitted && isCorrectOption && 'correct',
-                            submitted && isSelected && !isCorrectOption && 'wrong',
+                            submitted && isSelected && !isCorrectOption && 'bg-red-50 border-red-300 text-red-700',
                             submitted && 'cursor-default'
                           )}
                         >

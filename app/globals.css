@@ -4,36 +4,6 @@
 
 @layer base {
   :root {
-    /* ─── BearingTrade Industrial Design System ─── */
-    /* Primary palette */
-    --brand: #0052D4;
-    --brand-dark: #003DA8;
-    --brand-light: #EEF4FF;
-    --brand-muted: #DBEAFE;
-
-    /* Navy dark system */
-    --navy: #0B1120;
-    --navy-800: #111827;
-    --navy-700: #1E293B;
-
-    /* Neutral surfaces */
-    --surface: #F7F9FC;
-    --surface-2: #EFF3F8;
-    --surface-3: #E2E8F2;
-
-    /* Text scale */
-    --text-primary: #0F172A;
-    --text-secondary: #475569;
-    --text-muted: #94A3B8;
-
-    /* Functional */
-    --success: #00B37E;
-    --success-light: #ECFDF5;
-    --warning: #F59E0B;
-    --warning-light: #FFFBEB;
-    --error: #EF4444;
-
-    /* Shadcn-compatible variables */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
@@ -63,82 +33,22 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 }
 
-/* ─── Industrial Component Utilities ─── */
-@layer components {
-  /* Cards */
-  .bt-card {
-    @apply bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-200;
-  }
-
-  .bt-card-accent {
-    @apply bt-card border-l-4 border-l-[#0052D4];
-  }
-
-  /* Spec badge — for technical values like "20mm", "12.8kN" */
-  .bt-spec {
-    @apply font-mono text-sm bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200;
-  }
-
-  /* Section label */
-  .bt-label {
-    @apply text-xs font-semibold uppercase tracking-widest text-[#0052D4];
-  }
-
-  /* Dialogue bubbles */
-  .bt-bubble-customer {
-    @apply bg-[#EEF4FF] border border-[#DBEAFE] rounded-2xl rounded-tl-sm p-4;
-  }
-
-  .bt-bubble-sales {
-    @apply bg-slate-50 border border-slate-200 rounded-2xl rounded-tr-sm p-4;
-  }
-
-  /* Vocab card */
-  .bt-vocab-card {
-    @apply bg-white border border-slate-200 rounded-xl p-5 shadow-sm
-           hover:border-[#0052D4] hover:shadow-md transition-all duration-200 cursor-pointer;
-  }
-
-  .bt-vocab-card.mastered {
-    @apply bg-[#ECFDF5] border-[#00B37E];
-  }
-
-  /* Quiz option */
-  .bt-quiz-option {
-    @apply flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg border border-slate-200
-           hover:border-[#0052D4] hover:bg-[#EEF4FF] transition-all duration-150 cursor-pointer;
-  }
-
-  .bt-quiz-option.correct {
-    @apply bg-[#ECFDF5] border-[#00B37E] text-[#065F46];
-  }
-
-  .bt-quiz-option.wrong {
-    @apply bg-red-50 border-red-300 text-red-700;
-  }
-
-  /* Industrial background grid */
-  .bt-grid-bg {
-    background-image:
-      linear-gradient(rgba(0, 82, 212, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 82, 212, 0.04) 1px, transparent 1px);
-    background-size: 32px 32px;
-  }
-
-  /* Gradient brand text */
-  .bt-gradient-text {
-    @apply bg-gradient-to-r from-[#0052D4] to-[#0EA5E9] bg-clip-text text-transparent;
-  }
-}
-
-/* ─── Animations ─── */
 @layer utilities {
+  /* Speaking animation for TTS buttons */
+  .speaking-ring {
+    animation: speakPulse 1.2s ease-in-out infinite;
+  }
+
+  @keyframes speakPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 82, 212, 0.4); }
+    50%       { box-shadow: 0 0 0 6px rgba(0, 82, 212, 0); }
+  }
+
   .animate-fade-up {
     animation: fadeUp 0.5s ease-out both;
   }
@@ -162,22 +72,12 @@
   .delay-300 { animation-delay: 300ms; }
   .delay-400 { animation-delay: 400ms; }
   .delay-500 { animation-delay: 500ms; }
-
-  /* Speaking pulse ring */
-  .speaking-ring {
-    animation: speakPulse 1.2s ease-in-out infinite;
-  }
-
-  @keyframes speakPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 82, 212, 0.4); }
-    50%       { box-shadow: 0 0 0 6px rgba(0, 82, 212, 0); }
-  }
 }
 
-/* Legacy support */
-.industrial-card { @apply bt-card-accent; }
-.dialogue-customer { @apply bt-bubble-customer; }
-.dialogue-sales { @apply bt-bubble-sales; }
+/* Legacy class aliases — kept for backwards compat with older components */
 .psychology-tip {
-  @apply bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-lg p-4;
+  background: linear-gradient(to right, #fffbeb, #fff7ed);
+  border: 1px solid #fcd34d;
+  border-radius: 0.5rem;
+  padding: 1rem;
 }

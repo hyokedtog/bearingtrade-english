@@ -134,7 +134,7 @@ export function DialoguePracticeSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="max-w-2xl mb-12">
-          <p className="bt-label mb-3">外贸场景对话练习</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">外贸场景对话练习</p>
           <h2 className="text-3xl font-bold text-slate-900 leading-tight">
             轴承询盘标准对话
             <br />
@@ -142,7 +142,7 @@ export function DialoguePracticeSection() {
           </h2>
           <p className="mt-4 text-slate-500 flex items-center gap-2">
             <Play className="h-4 w-4 text-[#0052D4]" />
-            点击任意句子，以 <span className="bt-spec">0.85×</span> 语速朗读英文原文
+            点击任意句子，以 <span className="font-mono text-sm bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200">0.85×</span> 语速朗读英文原文
           </p>
         </div>
 
@@ -252,7 +252,7 @@ export function DialoguePracticeSection() {
         {/* Footer hint */}
         <div className="mt-10 max-w-3xl flex items-center justify-between border-t border-slate-100 pt-6">
           <p className="text-xs text-slate-400">
-            语速 <span className="bt-spec">0.85×</span> · 语言 <span className="bt-spec">en-US</span> · 需要浏览器支持 Web Speech API
+            语速 <span className="font-mono text-sm bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200">0.85×</span> · 语言 <span className="font-mono text-sm bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200">en-US</span> · 需要浏览器支持 Web Speech API
           </p>
           <a
             href="/dialogue"

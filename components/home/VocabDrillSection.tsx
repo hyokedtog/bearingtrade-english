@@ -163,12 +163,12 @@ export function VocabDrillSection() {
   const progress = Math.round((masteredCount / total) * 100)
 
   return (
-    <section className="py-20 bg-[#F7F9FC] bt-grid-bg">
+    <section className="py-20 bg-slate-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <p className="bt-label mb-3">今日单词打卡</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">今日单词打卡</p>
             <h2 className="text-3xl font-bold text-slate-900">
               核心词汇 · 今日 {total} 词
             </h2>
@@ -231,8 +231,8 @@ export function VocabDrillSection() {
               <div
                 key={word.id}
                 className={cn(
-                  'bt-vocab-card group relative flex flex-col gap-3 select-none animate-fade-up',
-                  isMastered && 'mastered opacity-70'
+                  'bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:border-blue-600 hover:shadow-md transition-all duration-200 cursor-pointer group relative flex flex-col gap-3 select-none animate-fade-up',
+                  isMastered && 'bg-emerald-50 border-emerald-400 opacity-70'
                 )}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
