@@ -1,16 +1,20 @@
 'use client'
 
 import { HeroSection } from '@/components/home/HeroSection'
+import { DialoguePracticeSection } from '@/components/home/DialoguePracticeSection'
+import { VocabDrillSection } from '@/components/home/VocabDrillSection'
+import { ReadingQuizSection } from '@/components/home/ReadingQuizSection'
 import { ScenarioSection } from '@/components/home/ScenarioSection'
 import { FeatureSection } from '@/components/home/FeatureSection'
-import { CoursePreview } from '@/components/home/CoursePreview'
 
 export default function Home() {
   return (
-    <div className="space-y-16 pb-16">
+    <div>
       <HeroSection />
+      <DialoguePracticeSection />
+      <VocabDrillSection />
+      <ReadingQuizSection />
       <ScenarioSection />
-      <CoursePreview />
       <FeatureSection />
     </div>
   )

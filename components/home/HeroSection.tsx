@@ -1,135 +1,174 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight, Play, Award, Users, BookOpen } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
+import { ArrowRight, Play, Award, Users, BookOpen, TrendingUp } from 'lucide-react'
 
 const stats = [
-  { label: '专业课程', value: '50+', icon: BookOpen },
-  { label: '实战场景', value: '200+', icon: Users },
-  { label: '认证学员', value: '1000+', icon: Award },
+  { label: '专业课程', value: '50+', icon: BookOpen, color: 'text-blue-400' },
+  { label: '实战场景', value: '200+', icon: Users, color: 'text-sky-400' },
+  { label: '认证学员', value: '1,000+', icon: Award, color: 'text-indigo-400' },
+  { label: '行业覆盖', value: '轴承全品类', icon: TrendingUp, color: 'text-cyan-400' },
 ]
 
 export function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
+    <section className="relative bg-[#0B1120] text-white overflow-hidden">
+      {/* Precision grid overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(0,82,212,1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,82,212,1) 1px, transparent 1px)
+          `,
+          backgroundSize: '48px 48px',
+        }}
+      />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="space-y-8 animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-400/30">
-              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-              <span className="text-sm font-medium text-blue-200">轴承外贸行业专属</span>
+      {/* Radial glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#0052D4] rounded-full blur-[120px] opacity-20 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-sky-500 rounded-full blur-[100px] opacity-10 pointer-events-none" />
+
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+          {/* ── Left: Content ── */}
+          <div className="space-y-8 animate-fade-up">
+            {/* Tag */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0EA5E9] animate-pulse" />
+              <span className="text-xs font-semibold text-blue-300 tracking-widest uppercase">
+                轴承外贸行业专属
+              </span>
             </div>
 
-            <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-              掌握
-              <span className="text-blue-400">专业外贸英语</span>
-              <br />
-              成就轴承出口业务
-            </h1>
+            {/* Headline */}
+            <div className="space-y-2">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight">
+                掌握专业
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0EA5E9] via-[#60A5FA] to-[#0052D4]">
+                  外贸英语
+                </span>
+              </h1>
+              <p className="text-2xl lg:text-3xl font-light text-slate-400 mt-2">
+                成就轴承出口业务
+              </p>
+            </div>
 
-            <p className="text-lg text-slate-300 max-w-xl leading-relaxed">
-              垂直于轴承外贸行业的英语学习平台，涵盖产品规格确认、工厂验货、
-              价格谈判等专业场景，以及海外客户接待、展会餐饮等生活化对话。
+            <p className="text-base text-slate-400 max-w-lg leading-relaxed">
+              垂直于轴承外贸行业的英语学习平台，涵盖产品规格确认、
+              工厂验货、价格谈判等专业场景，以及海外客户接待、展会餐饮等生活化对话。
             </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Link href="/course">
-                <Button size="lg" className="gap-2">
-                  开始学习
-                  <ArrowRight className="h-5 w-5" />
-                </Button>
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/course"
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-[#0052D4] hover:bg-[#003DA8] rounded-lg shadow-lg shadow-blue-900/40 transition-all hover:-translate-y-0.5"
+              >
+                开始学习
+                <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="/dialogue">
-                <Button size="lg" variant="outline" className="gap-2 border-white/30 text-white hover:bg-white/10">
-                  <Play className="h-5 w-5" />
-                  试听对话
-                </Button>
+              <Link
+                href="/dialogue"
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-slate-300 border border-slate-600 hover:border-slate-400 hover:text-white rounded-lg transition-all hover:-translate-y-0.5"
+              >
+                <Play className="h-4 w-4" />
+                试听对话
               </Link>
             </div>
 
             {/* Stats */}
-            <div className="flex gap-8 pt-8 border-t border-white/10">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-white/10">
               {stats.map((stat) => (
-                <div key={stat.label} className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/20">
-                    <stat.icon className="h-5 w-5 text-blue-400" />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold">{stat.value}</div>
-                    <div className="text-sm text-slate-400">{stat.label}</div>
-                  </div>
+                <div key={stat.label} className="space-y-1">
+                  <stat.icon className={`h-4 w-4 ${stat.color}`} />
+                  <div className="text-xl font-bold">{stat.value}</div>
+                  <div className="text-xs text-slate-500">{stat.label}</div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Visual */}
-          <div className="hidden lg:block relative">
-            <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-              {/* Dialogue Preview Card */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500">
-                    <span className="text-lg font-bold">客</span>
+          {/* ── Right: Interactive Dialogue Preview ── */}
+          <div className="hidden lg:block animate-fade-up delay-200">
+            <div className="relative">
+              {/* Card frame */}
+              <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 space-y-4">
+                {/* Header */}
+                <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                  <div className="flex items-center gap-3">
+                    <div className="flex gap-1.5">
+                      <span className="w-3 h-3 rounded-full bg-red-400/70" />
+                      <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
+                      <span className="w-3 h-3 rounded-full bg-green-400/70" />
+                    </div>
+                    <span className="text-xs text-slate-400 font-mono">bearing_inquiry.en</span>
                   </div>
-                  <div>
-                    <div className="font-semibold">客户询盘场景</div>
-                    <div className="text-sm text-slate-400">Bearing Inquiry</div>
-                  </div>
+                  <span className="bt-label">实时对话练习</span>
                 </div>
 
+                {/* Dialogue lines */}
                 <div className="space-y-3">
-                  <div className="bg-orange-500/20 rounded-lg p-4 rounded-tl-sm ml-8">
-                    <p className="text-sm text-orange-200">
-                      "Hi, I&apos;m looking for deep groove ball bearings, 6204 series. Can you provide specifications?"
-                    </p>
+                  <div className="flex gap-3 items-start">
+                    <div className="flex-shrink-0 w-7 h-7 rounded-full bg-orange-500/20 border border-orange-500/30 flex items-center justify-center">
+                      <span className="text-xs text-orange-400 font-bold">C</span>
+                    </div>
+                    <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl rounded-tl-sm px-4 py-2.5 text-sm text-slate-200 max-w-[85%]">
+                      I&apos;m looking for deep groove ball bearings,{' '}
+                      <span className="font-mono text-orange-300">6204</span> series. Can you send me the technical specs?
+                    </div>
                   </div>
-                  <div className="bg-blue-500/20 rounded-lg p-4 rounded-tr-sm mr-8">
-                    <p className="text-sm text-blue-200">
-                      "Certainly! Our 6204 bearings have 20mm bore, 47mm OD, and 14mm width. Cr load rating is 12.8kN."
-                    </p>
+
+                  <div className="flex gap-3 items-start justify-end">
+                    <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl rounded-tr-sm px-4 py-2.5 text-sm text-slate-200 max-w-[85%]">
+                      Of course! Bore{' '}
+                      <span className="font-mono text-blue-300">20mm</span>, OD{' '}
+                      <span className="font-mono text-blue-300">47mm</span>, width{' '}
+                      <span className="font-mono text-blue-300">14mm</span>. Cr rating{' '}
+                      <span className="font-mono text-blue-300">12.8kN</span>.
+                    </div>
+                    <div className="flex-shrink-0 w-7 h-7 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
+                      <span className="text-xs text-blue-400 font-bold">S</span>
+                    </div>
                   </div>
-                  <div className="bg-orange-500/20 rounded-lg p-4 rounded-tl-sm ml-8">
-                    <p className="text-sm text-orange-200">
-                      "What about the seal type and cage material?"
-                    </p>
+
+                  <div className="flex gap-3 items-start">
+                    <div className="flex-shrink-0 w-7 h-7 rounded-full bg-orange-500/20 border border-orange-500/30 flex items-center justify-center">
+                      <span className="text-xs text-orange-400 font-bold">C</span>
+                    </div>
+                    <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl rounded-tl-sm px-4 py-2.5 text-sm text-slate-200 max-w-[85%]">
+                      Do you offer <span className="font-mono text-orange-300">2RS</span> seal type?
+                      We need it for a dusty environment.
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                {/* Footer */}
+                <div className="flex items-center justify-between pt-3 border-t border-white/10">
                   <div className="flex gap-2">
-                    <span className="px-2 py-1 rounded bg-blue-500/20 text-xs text-blue-300">轴承规格</span>
-                    <span className="px-2 py-1 rounded bg-orange-500/20 text-xs text-orange-300">询盘对话</span>
+                    <span className="px-2 py-1 text-xs rounded bg-blue-500/20 text-blue-300 font-mono">6204-2RS</span>
+                    <span className="px-2 py-1 text-xs rounded bg-slate-500/20 text-slate-400">询盘对话</span>
                   </div>
-                  <Play className="h-5 w-5 text-slate-400" />
+                  <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                    0.85x 语速
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Floating Badge */}
-            <div className="absolute -top-4 -right-4 bg-emerald-500 text-white px-4 py-2 rounded-lg shadow-lg">
-              <div className="text-sm font-semibold">实时更新</div>
-              <div className="text-xs opacity-90">行业最新用语</div>
+              {/* Floating badge */}
+              <div className="absolute -top-3 -right-3 bg-[#00B37E] text-white px-3 py-1.5 rounded-lg shadow-lg text-xs font-semibold">
+                点击句子即可朗读
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#f8fafc"/>
-        </svg>
-      </div>
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#F7F9FC] to-transparent" />
     </section>
   )
 }
