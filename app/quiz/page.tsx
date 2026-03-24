@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, Suspense } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import {
@@ -170,6 +170,26 @@ function QuizPageContent() {
   )
   const [showResults, setShowResults] = useState(false)
   const [timeRemaining, setTimeRemaining] = useState(quiz.timeLimit * 60)
+
+  // 计时器倒计时，时间耗尽自动提交
+  useEffect(() => {
+    if (showResults) return
+    if (timeRemaining <= 0) {
+      setShowResults(true)
+      return
+    }
+    const timer = setInterval(() => {
+      setTimeRemaining((t) => {
+        if (t <= 1) {
+          clearInterval(timer)
+          setShowResults(true)
+          return 0
+        }
+        return t - 1
+      })
+    }, 1000)
+    return () => clearInterval(timer)
+  }, [showResults])
 
   const handleSelectAnswer = (answer: string | number) => {
     const newAnswers = [...answers]

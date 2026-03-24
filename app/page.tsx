@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 // ═══════════════════════════════════════════════════════════
 //  海浪声合成（Ocean Waves）
@@ -235,6 +236,7 @@ function HelmIcon({ className, spinning }: { className?: string; spinning?: bool
 //  启航按钮组件
 // ═══════════════════════════════════════════════════════════
 function VoyageButton() {
+  const router = useRouter()
   const [isLaunching, setIsLaunching] = useState(false)
   const [redirecting, setRedirecting] = useState(false)
 
@@ -246,7 +248,7 @@ function VoyageButton() {
     // 2.5秒后跳转
     setTimeout(() => {
       setRedirecting(true)
-      window.location.href = '/courses'
+      router.push('/courses')
     }, 2500)
   }, [isLaunching])
 

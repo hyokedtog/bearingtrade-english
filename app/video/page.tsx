@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import {
   Play,
   Clock,
@@ -194,7 +195,7 @@ export default function VideoPage() {
               <div className="flex gap-4 mt-8">
                 <div className="flex items-center gap-2 text-sm text-slate-500">
                   <Clock className="h-4 w-4" />
-                  <span>预计上线: 2024 Q1</span>
+                  <span>预计上线: 2026 Q2</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-slate-500">
                   <BookOpen className="h-4 w-4" />
@@ -232,8 +233,8 @@ export default function VideoPage() {
             虽然视频模块还在开发中，但我们的课程和对话练习模块已经准备就绪，马上开始学习吧！
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/course/" className="inline-flex items-center justify-center h-11 rounded-md px-8 text-sm font-medium bg-slate-100 text-slate-900 hover:bg-slate-200 transition-colors">浏览课程</a>
-            <a href="/dialogue/" className="inline-flex items-center justify-center h-11 rounded-md px-8 text-sm font-medium border border-white bg-transparent text-white hover:bg-white/10 transition-colors">对话练习</a>
+            <Link href="/course" className="inline-flex items-center justify-center h-11 rounded-md px-8 text-sm font-medium bg-slate-100 text-slate-900 hover:bg-slate-200 transition-colors">浏览课程</Link>
+            <Link href="/dialogue" className="inline-flex items-center justify-center h-11 rounded-md px-8 text-sm font-medium border border-white bg-transparent text-white hover:bg-white/10 transition-colors">对话练习</Link>
           </div>
         </div>
       </div>
